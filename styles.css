@@ -1,0 +1,28 @@
+.heading{
+    text-align: center;
+    background-color: aquamarine;
+    color: blue;
+    padding: 1px;
+}
+.nav{
+    background-color: brown;
+    width: 300px;
+    margin: 2px;
+    text-align: center;
+    padding: 1px;
+    border: black 3px double;
+}
+.main{
+    border: blue 3px double;
+    height: 450px;
+}
+.c1{
+    color: red;
+}
+body{
+    background-color: aquamarine;
+}
+button, .in{
+    background-color: blue;
+    color: black;
+}
