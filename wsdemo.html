@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <a href="#" onclick="showUsers()">Show Users</a>
+        <div id="u1"></div>
+        <script type="text/javascript">
+        function showUsers(){
+            var ele=document.getElementById("u1");
+            var url="https://jsonplaceholder.typicode.com/users";
+            var xml=new XMLHttpRequest();
+            xml.open("get",url);//initializes request
+            xml.send();//sends request to url
+            xml.onreadystatechange=function(){
+                if(xml.readyState==4){
+                    //ele.innerHTML=xml.responseText;
+                    var jsObject=JSON.parse(xml.responseText);
+                    var content=`<table><tr><th>ID</th><th>Name</th>
+                        <th>Username</th><th>Email</th></tr>`;
+                    for(var i=0; i < jsObject.length; i++){
+                        var id=jsObject[i].id;
+                        var name=jsObject[i].name;
+                        var username=jsObject[i].username;
+                        var email=jsObject[i].email;
+                       // content=content+ "<div>Id:"+id+", Name:"
+                          //  +name+", Username:"+username+", Email:"+email+"</div><hr/>";
+
+//Template String feature of Angular JS, line 23 can be replaced by line 30
+
+                       // content=content+`<div> Id:${id}, Name:${name}, Username:${username}, Email:${email}</div><hr/>`;
+//to display in table format 
+                       content=content+`<tr><td>${id}</td>
+                        <td>${name}</td><td>${username}</td><td>${email}</td></tr>`;
+                    }
+                    content=content+`</table>`;
+                    ele.innerHTML=content;
+                }
+
+            }
+        }
+        </script>
+    </body>
+</html>
